@@ -1,0 +1,28 @@
+/* CSS fixes for the intl-tel-input plugin */
+
+.hidden, .d-none {
+	display: none !important;
+}
+
+.intl-tel-input {
+	width: 100%;
+	
+}
+
+.intl-tel-input .country-list .country-name {
+	color: #555555;
+}
+
+/* for error msg */
+.intl-tel-input .validation-message {
+	position: absolute;
+	top: -6px;
+	font-family: "Open Sans", sans-serif !important;
+    font-size: 16px !important;
+	
+}
+
+.intl-tel-input .validation-message + input[type=tel] {
+    margin-top: 15px!important;
+}
+

@@ -1,0 +1,270 @@
+/* =========================================================================
+ *	Helper classes
+ *	styles that usually do one thing only - single-responsibility classes,
+ *	so the use of !important is justifiable here
+	 ========================================================================= */
+/* center an element */
+.center {
+  margin: 0 auto !important; }
+
+/* font family */
+.font-primary {
+  font-family: "Open Sans", sans-serif !important; }
+
+.font-secondary {
+  font-family: "Merriweather", serif !important; }
+
+/* put padding top and bottom on an element */
+.spaced {
+  padding-top: 1.5em !important;
+  padding-bottom: 1.5em !important; }
+
+/* condensed padding on columns */
+@media (min-width: 768px) {
+  .col-condensed {
+    padding-left: 1px !important;
+    padding-right: 1px !important; }
+    .col-condensed:first-child {
+      padding-left: 15px !important;
+      padding-right: 0 !important; }
+    .col-condensed:last-child {
+      padding-left: 0 !important;
+      padding-right: 15px !important; } }
+
+/* remove padding on element */
+.no-padding {
+  padding: 0 !important; }
+
+/* remove margin on element */
+.no-margin {
+  margin: 0 !important; }
+
+.text-highlight {
+  color: #35A8DD !important; }
+
+/* =========================================================================
+ *	Base styles
+	 ========================================================================= */
+html {
+  font-size: 16px; }
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px; }
+
+h1 {
+  font-family: "Merriweather", serif; }
+
+a {
+  color: #337ab7; }
+  a:hover, a:focus {
+    color: #23527c; }
+
+/* =========================================================================
+ *	Sticky Footer Fix
+	 ========================================================================= */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%; }
+
+.main-wrapper {
+  min-height: 100%;
+  position: relative; }
+  .main-wrapper > *:first-child {
+    padding-top: 1px;
+    margin-top: -1px; }
+
+main,
+.main-content {
+  padding-bottom: 130px; }
+
+footer,
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 130px; }
+
+/* =========================================================================
+ *	Header section
+	 ========================================================================= */
+.header {
+  background: #5E626C; }
+
+/* =========================================================================
+ *	Subheader section
+	 ========================================================================= */
+.subheader {
+  background: #2a2a2a; }
+
+/* =========================================================================
+ *	Main section
+	 ========================================================================= */
+.main-content {
+  padding-bottom: 160px; }
+
+/* =========================================================================
+ *	Footer section
+	 ========================================================================= */
+.footer {
+  border-top: 1px solid #808080;
+  padding: 2em 0; }
+
+.sample-mediaquery {
+  width: 100%; }
+  @media (min-width: 768px) {
+    .sample-mediaquery {
+      width: 90%; } }
+  @media (min-width: 992px) {
+    .sample-mediaquery {
+      width: 85%; } }
+  @media (min-width: 1200px) {
+    .sample-mediaquery {
+      width: 80%; } }
+
+/* =========================================================================
+ *	lead-copy section
+	 ========================================================================= */
+.lead-copy {
+  color: #ffffff; }
+  .lead-copy > h1:first-child {
+    font-size: 2rem; }
+  .lead-copy > p {
+    font-size: 1.2rem; }
+  .lead-copy > h2 {
+	font-size: 1.5rem; }
+  .lead-copy > ul {
+	font-size: 0.9em; }
+  .lead-copy > p:first-child {
+	margin-bottom: 1.2em; }
+
+	
+/* =========================================================================
+ *	body-copy section
+	 ========================================================================= */
+.body-copy > h2 {
+  font-size: 2.2rem; }
+
+.body-copy > p {
+  font-size: 1rem; }
+
+/* =========================================================================
+ *	brand-logo block
+	 ========================================================================= */
+.brand-logo {
+  text-align: center;
+  padding: .5em 0; }
+  @media (min-width: 768px) {
+    .brand-logo {
+      text-align: left; } }
+  .brand-logo__img {
+    margin: 0 auto; }
+    @media (min-width: 768px) {
+      .brand-logo__img {
+        margin: 0; } }
+  @media (min-width: 768px) {
+    .brand-logo--secondary {
+      text-align: right; } }
+  @media (min-width: 768px) {
+    .brand-logo--secondary .brand-logo__img {
+      float: right; } }
+
+.form-content h2 {
+  font-size: 22px;
+  color: white; }
+
+.form-content span {
+  color: white; }
+
+.validation-message {
+  color: white; }
+
+.x-error {
+  border: 2px solid #B84F16; }
+
+/* =========================================================================
+ *	featured block
+	 ========================================================================= */
+.featured {
+  margin: 3em 0;
+  padding: 0 1em;
+  text-align: center; }
+  @media (min-width: 480px) {
+    .featured {
+      margin: 3em 0;
+      padding: 0 5em; } }
+  @media (min-width: 768px) {
+    .featured {
+      margin: 3em 0;
+      padding: 0 1em; } }
+  .featured__list {
+    padding-left: 1em; }
+    @media (min-width: 768px) {
+      .featured__list {
+        text-align: left; } }
+  @media (min-width: 768px) {
+    .featured__excerpt {
+      text-align: left; } }
+
+/* =========================================================================
+ *	hero block
+	 ========================================================================= */
+.hero {
+  padding: 2em 3em;
+  background: #D8D9DE; }
+  .hero__content {
+    width: 100%; }
+    @media (min-width: 768px) {
+      .hero__content {
+        width: 60%; } }
+  .hero__lead {
+    font-size: 1.2rem;
+    padding: .5em 0; }
+  .hero__quote {
+    font-size: 2rem;
+    padding: .5em 0; }
+  .hero__desc {
+    padding: .5em 0; }
+
+/* =========================================================================
+ *	info-box block
+	 ========================================================================= */
+.info-box {
+  padding: 1em 2em;
+  margin: 1em 0;
+  background: #3B3F4C;
+  color: #ffffff; }
+  @media (min-width: 768px) {
+    .info-box {
+      min-height: 22em; } }
+
+/* =========================================================================
+ *	pubkit-btn block
+	 ========================================================================= */
+.pubkit-btn {
+  display: inline-block;
+  text-align: center;
+  padding: 1em 2em;
+  font-size: 1.2rem;
+  border-radius: 6px;
+  background: #FFD074;
+  color: #2a2a2a;
+  transition: all 0.3s ease-out; }
+  .pubkit-btn:hover, .pubkit-btn:focus {
+    text-decoration: none;
+    background: #2a2a2a;
+    color: #FFD074; }
+  .pubkit-btn__lead {
+    font-style: italic; }
+
+/* =========================================================================
+ *	privacy-policy block
+	 ========================================================================= */
+.privacy-policy {
+  text-align: center;
+  padding: 1em 0; }
+  @media (min-width: 768px) {
+    .privacy-policy {
+      text-align: right; } }

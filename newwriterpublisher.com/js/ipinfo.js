@@ -1,0 +1,292 @@
+jQuery(document).ready(function($) {
+
+    // create our main object to avoid conflicts in global space
+    var IPINFO = IPINFO || {};
+    
+    // you can set common properties/options here
+    IPINFO.props = {
+        country: "USA", // set default Country
+        ipinfoUrl: "//ipinfo.io/?token=11627ae1b2831c"
+    };
+    
+    // country code list
+    IPINFO.country = {
+            af: "afg",
+            al: "alb",
+            dz: "dza",
+            as: "asm",
+            ad: "and",
+            ao: "ago",
+            ai: "aia",
+            ag: "atg",
+            ar: "arg",
+            am: "arm",
+            aw: "abw",
+            au: "aus",
+            at: "aut",
+            az: "aze",
+            bs: "bhs",
+            bh: "bhr",
+            bd: "bgd",
+            bb: "brb",
+            by: "blr",
+            be: "bel",
+            bz: "blz",
+            bj: "ben",
+            bm: "bmu",
+            bt: "btn",
+            bo: "bol",
+            ba: "bih",
+            bw: "bwa",
+            br: "bra",
+            io: "bgr",
+            vg: "vgb",
+            bn: "brn",
+            bg: "bgr",
+            bf: "bfa",
+            bi: "bdi",
+            kh: "khm",
+            cm: "cmr",
+            ca: "can",
+            cv: "cpv",
+            bq: "ant",
+            ky: "cym",
+            cf: "caf",
+            td: "tcd",
+            cl: "chl",
+            cn: "chn",
+            co: "col",
+            km: "com",
+            cd: "cod",
+            cg: "cog",
+            ck: "cok",
+            cr: "cri",
+            ci: "civ",
+            hr: "hrv",
+            cu: "cub",
+            cw: "cuw",
+            cy: "cyp",
+            cz: "cze",
+            dk: "dnk",
+            dj: "dji",
+            dm: "dma",
+            do: "dom",
+            ec: "ecu",
+            eg: "egy",
+            sv: "slv",
+            gq: "gnq",
+            er: "eri",
+            ee: "est",
+            et: "eth",
+            fk: "flk",
+            fo: "fro",
+            fj: "fji",
+            fi: "fin",
+            fr: "fra",
+            gf: "guf",
+            pf: "pyf",
+            ga: "gab",
+            gm: "gmb",
+            ge: "geo",
+            de: "deu",
+            gh: "gha",
+            gi: "gib",
+            gr: "grc",
+            gl: "grl",
+            gd: "grd",
+            gp: "glp",
+            gu: "gum",
+            gt: "gtm",
+            gn: "gin",
+            gw: "gnb",
+            gy: "guy",
+            ht: "hti",
+            hn: "hnd",
+            hk: "hkg",
+            hu: "hun",
+            is: "isl",
+            in : "ind",
+            id: "idn",
+            ir: "irn",
+            iq: "irq",
+            ie: "irl",
+            il: "isr",
+            it: "ita",
+            jm: "jam",
+            jp: "jpn",
+            jo: "jor",
+            kz: "kaz",
+            ke: "ken",
+            ki: "kir",
+            kw: "kwt",
+            kg: "kgz",
+            la: "lao",
+            lv: "lva",
+            lb: "lbn",
+            ls: "lso",
+            lr: "lbr",
+            ly: "lby",
+            li: "lie",
+            lt: "ltu",
+            lu: "lux",
+            mo: "mac",
+            mk: "mkd",
+            mg: "mdg",
+            mw: "mwi",
+            my: "mys",
+            mv: "mdv",
+            ml: "mli",
+            mt: "mlt",
+            mh: "mhl",
+            mq: "mtq",
+            mr: "mrt",
+            mu: "mus",
+            mx: "mex",
+            fm: "fsm",
+            md: "mda",
+            mc: "mco",
+            mn: "mng",
+            me: "mne",
+            ms: "msr",
+            ma: "mar",
+            mz: "moz",
+            mm: "mmr",
+            na: "nam",
+            nr: "nru",
+            np: "npl",
+            nl: "nld",
+            nc: "ncl",
+            nz: "nzl",
+            ni: "nic",
+            ne: "ner",
+            ng: "nga",
+            nu: "niu",
+            nf: "nfk",
+            kp: "prk",
+            mp: "mnp",
+            no: "nor",
+            om: "omn",
+            pk: "pak",
+            pw: "plw",
+            ps: "pse",
+            pa: "pan",
+            pg: "png",
+            py: "pry",
+            pe: "per",
+            ph: "phl",
+            pl: "pol",
+            pt: "prt",
+            pr: "pri",
+            qa: "qat",
+            re: "reu",
+            ro: "rom",
+            ru: "rus",
+            rw: "rwa",
+            bl: "blm",
+            sh: "shn",
+            kn: "kna",
+            lc: "lca",
+            mf: "maf",
+            pm: "spm",
+            vc: "vct",
+            ws: "wsm",
+            sm: "smr",
+            st: "stp",
+            sa: "sau",
+            sn: "sen",
+            rs: "srb",
+            sc: "syc",
+            sl: "sle",
+            sg: "sgp",
+            sx: "sxm",
+            sk: "svk",
+            si: "svn",
+            sb: "slb",
+            so: "som",
+            za: "zaf",
+            kr: "kor",
+            ss: "ssd",
+            es: "esp",
+            lk: "lka",
+            sd: "sdn",
+            sr: "sur",
+            sz: "swz",
+            se: "swe",
+            ch: "che",
+            sy: "syr",
+            tw: "twn",
+            tj: "tjk",
+            tz: "tza",
+            th: "tha",
+            tl: "tls",
+            tg: "tgo",
+            tk: "tkl",
+            to: "ton",
+            tt: "tto",
+            tn: "tun",
+            tr: "tur",
+            tm: "tkm",
+            tc: "tca",
+            tv: "tuv",
+            vi: "vir",
+            ug: "uga",
+            ua: "ukr",
+            ae: "are",
+            gb: "gbr",
+            us: "usa",
+            uy: "ury",
+            uz: "uzb",
+            vu: "vut",
+            va: "vat",
+            ve: "ven",
+            vn: "vnm",
+            wf: "wlf",
+            ye: "yem",
+            zm: "zmb",
+            zw: "zwe"  
+    };
+
+    // methods
+    IPINFO.methods = {
+        
+        mapCountry: function(countryCode) {
+            var mappedCountry = IPINFO.country[countryCode.toLowerCase()];
+            return mappedCountry.toUpperCase();
+        },
+        
+        getInfo: function() {
+            $.ajax({
+				url: IPINFO.props.ipinfoUrl,
+                dataType: 'json'
+			})
+            .done(function(data) {
+                var trackedCountry = IPINFO.methods.mapCountry(data.country);
+                IPINFO.methods.setInfo(trackedCountry);
+            })
+            .fail(function(){
+                // in case the response failed, we set the default Country..
+                console.log("Something went wrong, failed to detect country..");
+                IPINFO.methods.setInfo(IPINFO.props.country);
+            });
+        },
+        
+        setInfo: function(country) {
+            // check if Country field already exist and change its value
+            if ($('#Country').length){
+                $('#Country').val(country);
+            }
+            // else create Country element and set the value
+            else {
+                var inputCountry = '<input name="Country" id="Country" type="hidden" value="' + country + '" />';
+                $('form').append(inputCountry);
+            }
+        }
+        
+    };
+    
+    // initialization
+	IPINFO.init = (function() {
+		IPINFO.methods.getInfo();
+	})();
+    
+});
